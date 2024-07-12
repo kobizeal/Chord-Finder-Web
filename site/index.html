@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="\css\styles.css">
+    <title>Guitar Chord Finder</title>
+</head>
+
+<body>
+    <div class="settings">
+        <label for="instrument-selector">Selected instrument&nbsp;</label>
+        <select name="instrument-selector" id="instrument-selector"></select>
+
+        <div class="accidental-selector">
+            <input type="radio" class="acc-select" id="flats" name="accidentals" value="flats" checked>
+            <label for="flats">♭&nbsp;&nbsp;&nbsp;</label>
+            <input type="radio" class="acc-select" id="sharps" name="accidentals" value="sharps">
+            <label for="sharps">♯</label>
+        </div>
+        <label for="number-of-frets">&nbsp;&nbsp;&nbsp;Number of frets:&nbsp;</label>
+        <input type="number" id="number-of-frets" min="5" max="24" value="12">
+        <label for="reset">&nbsp;&nbsp;&nbsp;Reset:&nbsp;</label>
+        <button class="reset-button"></button>
+
+
+    </div>
+    <div class="fretboard">
+    </div>
+    <div class = "wrapper">
+        <input class = "output" type="text" id="tuning-display" readonly>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

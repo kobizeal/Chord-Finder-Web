@@ -1,0 +1,237 @@
+:root {
+    --fretboard-height: 300;
+    --number-of-strings: 6;
+    --string-height: 10;
+    --half-string-height: calc(var(--string-height) / 2);
+    --string-top-position: calc(var(--fretboard-height) / var(--number-of-strings) / 2 - var(--half-string-height));
+    --double-fretmark-position-1: calc(var(--fretboard-height) * 0.25);
+    --double-fretmark-position-2: calc(var(--fretboard-height) * 0.75);
+    --noteDotOpacity: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #353535;
+}
+
+.fretboard {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../img/fretboard-fotor-20240702162220.png');
+    margin-left: 12.5%;
+    width: 75%;
+    min-width: 1500px;
+    height: calc(var(--fretboard-height) * 1px);
+    margin-top: 50px;
+}
+
+.string0 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+.string1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+.string2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+.string3 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+.string4 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+.string5 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+
+.string5:before {
+    content: '';
+    width: 100%;
+    height: calc(var(--string-height) * 1px);
+    background-image: url(/img/String2.png);
+    z-index: 1;
+    position: absolute;
+    top: 22px;
+    top: calc(var(--string-top-position) * 1px);
+}
+
+.string4:before {
+    content: '';
+    width: 100%;
+    height: calc(var(--string-height) * 1px - 1px);
+    background-image: url(/img/String2.png);
+    z-index: 1;
+    position: absolute;
+    top: 22px;
+    top: calc(var(--string-top-position) * 1px);
+}
+
+.string3:before {
+    content: '';
+    width: 100%;
+    height: calc(var(--string-height) * 1px - 2px);
+    background-image: url(/img/String2.png);
+    z-index: 1;
+    position: absolute;
+    top: 22px;
+    top: calc(var(--string-top-position) * 1px);
+}
+
+.string2:before {
+   content: '';
+    width: 100%;
+    height: calc(var(--string-height) * 1px - 4px);
+    background-image: url(/img/String2.png);
+    z-index: 1;
+    position: absolute;
+    top: 22px;
+    top: calc(var(--string-top-position) * 1px);
+}
+
+.string1:before {
+    content: '';
+    width: 100%;
+    height: calc(var(--string-height) * 1px - 5px);
+    background-image: url(/img/String2.png);
+    z-index: 1;
+    position: absolute;
+    top: 22px;
+    top: calc(var(--string-top-position) * 1px);
+}
+
+.string0:before {
+    content: '';
+    width: 100%;
+    height: calc(var(--string-height) * 1px - 6px);
+    background-image: url(/img/String2.png);
+    z-index: 1;
+    position: absolute;
+    top: 22px;
+    top: calc(var(--string-top-position) * 1px);
+}
+.note-fret {
+    display: flex;
+    flex: 1;
+    border-right: 10px solid;
+    border-image: linear-gradient(to left, #777, #bbb, #777) 1 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.note-fret:first-child {
+    background: #161717;
+    min-width: 76px;
+    border-right: 15px solid;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-image: linear-gradient(to left, #bbb, #fff, #bbb) 1 100%;
+}
+.note-fret:first-child:before {
+    content: attr(data-note);
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    line-height: 33px;
+    text-align: center;
+    background: teal;
+    z-index: 2;
+    color: lightgray;
+    opacity: var(--noteDotOpacity);
+}
+.note-fret:before {
+    content: attr(data-note);
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    line-height: 33px;
+    text-align: center;
+    background: teal;
+    z-index: 2;
+    color: lightgray;
+    opacity: var(--noteDotOpacity);
+}
+.single-fretmark:after, .double-fretmark:before, .double-fretmark:after{
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: white;
+}
+.single-fretmark:after {
+    top: calc(var(--fretboard-height) / 2 * 1px);
+    transform: translate(0,-50%);
+}
+.double-fretmark:before {
+    top: calc(var(--double-fretmark-position-1) * 1px);
+    transform: translate(-140%, -50%);
+}
+.double-fretmark:after {
+    top: calc(var(--double-fretmark-position-2) * 1px - 2px);
+    transform: translate(-140%, -50%);
+
+}
+.settings{
+    display:flex;
+    color: white;
+    padding: 20px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    background: rgb(36, 36, 36);
+}
+.accidental-selector{
+    margin-left: 20px;
+}
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {  
+    opacity: 1;
+}
+.input{
+    height: 10px;
+    width:10px;
+    transform: translate(-500%, -50%);
+}
+.reset-button{
+    width:20px;
+    height:20px;
+}
+.reset-button:hover{
+    background: lightcoral;
+}
+.output{
+    text-align: center;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+    border-style:none;
+    width:500px;
+    font-size: 40px;
+    color: white;
+}
+.wrapper {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
