@@ -7,8 +7,8 @@ demo folder contains java:
 not every chord is included but adding new ones is extremely easy. 
 
 add and modify code in chordCreator.java:
-//Create chord array
-public static List<List<Integer>> *chordName* = new ArrayList<>(12);
+        
+        public static List<List<Integer>> *chordName* = new ArrayList<>(12);
 
         for (int rootNote = 0; rootNote < 12; rootNote++) {
             *chordName*.add(Arrays.asList(
